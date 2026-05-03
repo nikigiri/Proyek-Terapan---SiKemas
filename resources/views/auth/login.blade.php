@@ -18,44 +18,55 @@
         }
 
         html, body {
-            height: 100%;
+            min-height: 100%;
             font-family: 'DM Sans', sans-serif;
         }
 
         body {
             min-height: 100vh;
+            width: 100%;
             display: flex;
-            align-items: center;
+            align-items: start;
             justify-content: center;
             background: linear-gradient(135deg, #ddeeff 0%, #c5d8f8 15%, #a8c0f5 35%, #8fa8ee 50%, #9da8ef 65%, #b0a8f0 80%, #c8b8f5 100%);
-            padding: 24px;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 72px 24px 32px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         /* Soft light blobs */
         body::before {
             content: '';
-            position: absolute;
-            width: 500px; height: 500px;
+            position: fixed;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
-            top: -100px; left: -100px;
+            top: -100px;
+            left: -100px;
             pointer-events: none;
+            z-index: 0;
         }
+
         body::after {
             content: '';
-            position: absolute;
-            width: 400px; height: 400px;
+            position: fixed;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(180,160,255,0.2) 0%, transparent 70%);
-            bottom: -80px; right: -80px;
+            bottom: -80px;
+            right: -80px;
             pointer-events: none;
+            z-index: 0;
         }
 
         /* Back link */
         .back-link {
-            position: absolute;
+            position: fixed;
             top: 24px; left: 28px;
             display: flex; align-items: center; gap: 6px;
             color: rgba(255,255,255,0.85);
@@ -88,23 +99,36 @@
 
         /* Logo */
         .logo {
-            display: flex; align-items: center; justify-content: center;
-            gap: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 24px;
         }
+
         .logo-icon {
-            width: 34px; height: 34px;
-            background: linear-gradient(135deg, #6fa3ef, #9b8ee8);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
-        .logo-icon svg { width: 18px; height: 18px; fill: white; }
+
+        .logo-icon img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            display: block;
+        }
+
         .logo-text {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: #1a1a2e;
-            letter-spacing: 0.5px;
-        }
+            letter-spacing: 0.3px;
+            line-height: 1;
+        } 
 
         /* Heading */
         .card h1 {
@@ -278,9 +302,8 @@
         <!-- Logo -->
         <div class="logo">
             <div class="logo-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                <img src="{{ asset('images/siKemasLogo.png') }}" alt="Logo SiKemas">
             </div>
-            <span class="logo-text">SiKemas</span>
         </div>
 
         <h1>Selamat Datang Kembali!</h1>

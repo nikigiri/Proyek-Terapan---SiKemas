@@ -8,23 +8,54 @@
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root { --card-shadow: 0 20px 60px rgba(80,100,200,0.15), 0 4px 20px rgba(80,100,200,0.08); }
-        html, body { height: 100%; font-family: 'DM Sans', sans-serif; }
+        
+        html, body {
+            min-height: 100%;
+            font-family: 'DM Sans', sans-serif;
+        }
+
         body {
             min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
+            width: 100%;
+            display: flex;
+            align-items: start;
+            justify-content: center;
             background: linear-gradient(135deg, #ddeeff 0%, #c5d8f8 15%, #a8c0f5 35%, #8fa8ee 50%, #9da8ef 65%, #b0a8f0 80%, #c8b8f5 100%);
-            padding: 24px; position: relative; overflow: hidden;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 72px 24px 32px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
+
+        /* Soft light blobs */
         body::before {
-            content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%;
+            content: '';
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
             background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
-            top: -100px; left: -100px; pointer-events: none;
+            top: -100px;
+            left: -100px;
+            pointer-events: none;
+            z-index: 0;
         }
+
         body::after {
-            content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
             background: radial-gradient(circle, rgba(180,160,255,0.2) 0%, transparent 70%);
-            bottom: -80px; right: -80px; pointer-events: none;
+            bottom: -80px;
+            right: -80px;
+            pointer-events: none;
+            z-index: 0;
         }
+
         .card {
             background: rgba(255,255,255,0.97); border-radius: 20px;
             padding: 38px 36px; width: 100%; max-width: 440px;
@@ -35,13 +66,42 @@
             from { opacity:0; transform: translateY(16px) scale(0.98); }
             to   { opacity:1; transform: translateY(0) scale(1); }
         }
+       
+        /* Logo */
         .logo {
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 6px;
         }
-        .logo img { height: 70px; width: auto; object-fit: contain; }
+
+        .logo-icon {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-icon img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a2e;
+            letter-spacing: 0.3px;
+            line-height: 1;
+        } 
+
         .card h1 { font-size: 21px; font-weight: 600; color: #1a1a2e; text-align: center; margin-bottom: 5px; }
-        .subtitle { font-size: 13.5px; color: #8892a4; text-align: center; margin-bottom: 24px; }
+        .subtitle { font-size: 13.5px; color: #8892a4; text-align: center; margin-bottom: 10px; }
         .alert-error {
             background: #fff0f0; border: 1px solid #ffd0d0;
             border-radius: 10px; padding: 10px 14px;
@@ -111,10 +171,10 @@
 </head>
 <body>
     <div class="card">
-
-        {{-- Logo --}}
         <div class="logo">
-            <img src="{{ asset('images/logo.png') }}" alt="SiKemas">
+            <div class="logo-icon">
+                <img src="{{ asset('images/siKemasLogo.png') }}" alt="Logo SiKemas">
+            </div>
         </div>
 
         <h1>Buat Akun Baru</h1>
