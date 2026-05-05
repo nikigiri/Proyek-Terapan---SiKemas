@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masuk — SiKemas</title>
+    <title>Login</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,7 +37,6 @@
             overflow-y: auto;
         }
 
-        /* Soft light blobs */
         body::before {
             content: '';
             position: fixed;
@@ -64,7 +63,6 @@
             z-index: 0;
         }
 
-        /* Back link */
         .back-link {
             position: fixed;
             top: 24px; left: 28px;
@@ -79,7 +77,6 @@
         .back-link:hover { color: #fff; }
         .back-link svg { width: 16px; height: 16px; }
 
-        /* Card */
         .card {
             background: rgba(255, 255, 255, 0.97);
             border-radius: 20px;
@@ -97,7 +94,6 @@
             to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Logo */
         .logo {
             display: flex;
             align-items: center;
@@ -146,7 +142,6 @@
             font-weight: 400;
         }
 
-        /* Alert error */
         .alert-error {
             background: #fff0f0;
             border: 1px solid #ffd0d0;
@@ -157,7 +152,6 @@
             margin-bottom: 18px;
         }
 
-        /* Form */
         .form-group { margin-bottom: 16px; }
 
         .form-group label {
@@ -191,7 +185,6 @@
             box-shadow: 0 0 0 3.5px rgba(111, 163, 239, 0.15);
         }
 
-        /* Password toggle */
         .toggle-pw {
             position: absolute;
             right: 12px; top: 50%;
@@ -205,7 +198,6 @@
         .toggle-pw:hover { color: #6fa3ef; }
         .toggle-pw svg { width: 17px; height: 17px; }
 
-        /* Remember + Forgot */
         .row-check {
             display: flex; align-items: center;
             justify-content: space-between;
@@ -230,7 +222,6 @@
         }
         .forgot:hover { color: #4f7fe8; }
 
-        /* Buttons */
         .btn-primary {
             width: 100%;
             padding: 12px;
@@ -267,7 +258,6 @@
         .btn-google:hover { background: #f5f7ff; border-color: #c5d2eb; }
         .btn-google svg { width: 18px; height: 18px; }
 
-        /* Divider */
         .divider {
             display: flex; align-items: center; gap: 10px;
             margin-bottom: 12px;
@@ -275,7 +265,6 @@
         .divider-line { flex: 1; height: 1px; background: #e4e9f2; }
         .divider-text { font-size: 12px; color: #b0b8cc; white-space: nowrap; }
 
-        /* Sign up link */
         .signup-link {
             text-align: center;
             font-size: 13px;
@@ -291,15 +280,8 @@
 </head>
 <body>
 
-    <a href="/" class="back-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"/>
-        </svg>
-        Halaman Utama
-    </a>
-
     <div class="card">
-        <!-- Logo -->
+        
         <div class="logo">
             <div class="logo-icon">
                 <img src="{{ asset('images/siKemasLogo.png') }}" alt="Logo SiKemas">
@@ -307,8 +289,7 @@
         </div>
 
         <h1>Selamat Datang Kembali!</h1>
-        <p class="subtitle">Kami merindukanmu! Silakan masuk ke akunmu.</p>
-
+    
         {{-- Error dari Laravel --}}
         @if ($errors->any())
             <div class="alert-error">{{ $errors->first() }}</div>

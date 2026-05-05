@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar — SiKemas</title>
+    <title>Registrasi</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +29,6 @@
             overflow-y: auto;
         }
 
-        /* Soft light blobs */
         body::before {
             content: '';
             position: fixed;
@@ -67,7 +66,6 @@
             to   { opacity:1; transform: translateY(0) scale(1); }
         }
        
-        /* Logo */
         .logo {
             display: flex;
             align-items: center;
